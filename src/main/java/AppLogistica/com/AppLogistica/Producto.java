@@ -1,48 +1,87 @@
 package AppLogistica.com.AppLogistica;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "productos")
 public class Producto {
-    private int id;
-    private String nombre;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idProducto;
+
+    @Column(name = "nombre_producto")
+    private String nombreProducto;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "cantidad")
+    private int cantidad;
+
+    @Column(name = "precio")
     private double precio;
 
-    public void setId(int id) {
-        this.id = id;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    @Column(name = "imagen")
+    private String imagen;
+
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
     public double getPrecio() {
         return precio;
     }
 
-    public Producto(int id, String nombre, String descripcion, double precio) {
-        this.id = id;
-        this.nombre = nombre;
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }
