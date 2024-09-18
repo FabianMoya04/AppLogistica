@@ -1,4 +1,4 @@
-package AppLogistica.com.AppLogistica;
+package AppLogistica.com.AppLogistica.GestionProducto;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;

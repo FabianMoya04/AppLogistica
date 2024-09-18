@@ -1,4 +1,4 @@
-package AppLogistica.com.AppLogistica;
+package AppLogistica.com.AppLogistica.GestionProducto;
 
 import jakarta.persistence.*;
 
